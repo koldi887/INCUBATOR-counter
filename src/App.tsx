@@ -6,6 +6,9 @@ import CounterSettings from "./components/CounterSettings";
 function App() {
     const [ counterSettings, setCounterSettings ] = useState({ minValue: 0, maxValue: 5 })
     const [ counterValue, setCounterValue ] = useState(0)
+    const [ error, setError ] = useState({ min: '', max: '' })
+    const [ editMode, setEditMode ] = useState(false)
+
 
     const increase = () => {
         setCounterValue(counterValue + 1)
@@ -18,6 +21,38 @@ function App() {
     const reset = () => {
         setCounterSettings({ minValue: 0, maxValue: 5 })
         setCounterValue(0)
+        localStorage.clear()
+    }
+
+    const saveSettings = () => {
+        localStorage.setItem('settings', JSON.stringify(counterSettings))
+        setCounterValue(counterSettings.minValue)
+        setEditMode(false)
+    }
+
+    const settingsValidation = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEditMode(true)
+
+        const value = Number(e.target.value)
+        const err = 'Incorrect value!'
+
+        if (e.target.name === 'min') {
+            setCounterSettings({ ...counterSettings, minValue: value })
+            if (value < 0 || value > counterSettings.maxValue) {
+                setError({ ...error, min: err })
+            } else {
+                setError({ ...error, min: '' })
+            }
+        }
+        if (e.target.name === 'max') {
+            setCounterSettings({ ...counterSettings, maxValue: value })
+            if (value < 0 || value < counterSettings.minValue) {
+                setError({ ...error, max: err })
+            } else {
+                console.log('da')
+                setError({ ...error, max: '' })
+            }
+        }
     }
 
     useEffect(() => {
@@ -33,18 +68,14 @@ function App() {
         localStorage.setItem('count', JSON.stringify(counterValue))
     }, [ counterValue ])
 
-
-    useEffect(() => {
-        localStorage.setItem('settings', JSON.stringify(counterSettings))
-    }, [ counterSettings ])
-
-
     return (
         <div className="App">
             <Counter
                 counterValue={counterValue}
                 maxValue={counterSettings.maxValue}
                 minValue={counterSettings.minValue}
+                error={error}
+                editMode={editMode}
                 decrease={decrease}
                 increase={increase}
                 reset={reset}
@@ -52,8 +83,9 @@ function App() {
 
             <CounterSettings
                 counterSettings={counterSettings}
-                setCounterSettings={setCounterSettings}
-                setCounterValue={setCounterValue}
+                saveSettings={saveSettings}
+                settingsValidation={settingsValidation}
+                error={error}
             />
 
         </div>

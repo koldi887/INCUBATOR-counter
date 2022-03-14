@@ -1,10 +1,13 @@
 import React from 'react';
 import CounterButton from "./CounterButton";
+import CounterScreen from "./CounterScreen";
 
 type PropsType = {
     counterValue: number,
     maxValue: number,
     minValue: number,
+    error: { min: string, max: string }
+    editMode: boolean
     increase: () => void
     decrease: () => void
     reset: () => void
@@ -14,16 +17,21 @@ const Counter: React.FC<PropsType> = ({
                                           counterValue,
                                           maxValue,
                                           minValue,
+                                          error,
+                                          editMode,
                                           decrease,
                                           increase,
                                           reset
                                       }) => {
-    console.log(maxValue)
-    console.log(minValue)
-    console.log(counterValue)
     return (
         <div>
-            <h1 className={counterValue == +maxValue ? 'active' : ''}>{counterValue}</h1>
+            <CounterScreen
+                counterValue={counterValue}
+                maxValue={maxValue}
+                error={error}
+                editMode={editMode}
+            />
+
             <CounterButton
                 title={'inc'}
                 callBack={increase}
