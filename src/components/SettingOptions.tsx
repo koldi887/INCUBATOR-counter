@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from 'react';
+import { OptionInput } from "./index";
 
 type PropsType = {
     counterSettings: { minValue: number, maxValue: number };
@@ -22,27 +23,23 @@ const SettingOptions: React.FC<PropsType> = (
     return (
         <div className=' app__settings'>
 
-            <div className={'app__settings-options'}>
-                <p className='text-color'>min value:</p>
-                <input
-                    name='min'
-                    type="number"
-                    className={inputClassHandler(error.min)}
-                    value={counterSettings.minValue}
-                    onChange={settingsValidation}
-                />
-            </div>
+            <OptionInput
+                title={'min value'}
+                name={'min'}
+                type={'number'}
+                classHandler={() => inputClassHandler(error.min)}
+                value={counterSettings.minValue}
+                callback={settingsValidation}
+            />
 
-            <div className={'app__settings-options '}>
-                <p className='text-color'>max value:</p>
-                <input
-                    name='max'
-                    type="number"
-                    className={inputClassHandler(error.max)}
-                    value={counterSettings.maxValue}
-                    onChange={settingsValidation}
-                />
-            </div>
+            <OptionInput
+                title='max value'
+                name='max'
+                type='number'
+                classHandler={() => inputClassHandler(error.max)}
+                value={counterSettings.maxValue}
+                callback={settingsValidation}
+            />
 
         </div>
     );

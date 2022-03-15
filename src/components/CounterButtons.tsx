@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from "./Button";
+import { Button } from "./index";
 
 type PropsType = {
     counterValue: number,
@@ -17,7 +17,7 @@ const CounterButtons: React.FC<PropsType> = (
         decrease,
         reset
     }) => {
-    
+
     return (
         <>
             <Button
