@@ -23,7 +23,7 @@ const SettingOptions: React.FC<PropsType> = (
         <div className=' app__settings'>
 
             <div className={'app__settings-options'}>
-                <p className='text-color'>max value:</p>
+                <p className='text-color'>min value:</p>
                 <input
                     name='min'
                     type="number"
@@ -34,7 +34,7 @@ const SettingOptions: React.FC<PropsType> = (
             </div>
 
             <div className={'app__settings-options '}>
-                <p className='text-color'>min value:</p>
+                <p className='text-color'>max value:</p>
                 <input
                     name='max'
                     type="number"
