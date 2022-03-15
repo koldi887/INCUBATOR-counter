@@ -17,8 +17,8 @@ const CounterScreen: React.FC<PropsType> = (
     }) => {
 
     const errors = Object.values(error).filter(val => val).join()
-    const screenValue = errors ? <p className='active'>{errors}</p> : editMode
-        ? <p className='text-color'>enter values and press "set"</p> : false
+    const screenValue = errors ? <p className='active'>{errors}</p>
+        : editMode ? <p className='text-color'>enter values and press "set"</p> : false
 
     return (
         <div className='text-color'>
