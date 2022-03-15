@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 type PropsType = {
     counterValue: number,
@@ -14,11 +14,13 @@ const CounterScreen: React.FC<PropsType> = ({
                                                 error,
                                                 editMode
                                             }) => {
+
     const errors = Object.values(error).filter(val => val).join()
-    const screenValue = errors ? errors : editMode ? 'enter values and press "set"' : false
+    const screenValue = errors ? <p className='active'>{errors}</p> : editMode
+        ? <p className='text-color'>enter values and press "set"</p> : false
 
     return (
-        <div>
+        <div className='text-color'>
             {screenValue || (
                 <h1 className={counterValue === maxValue ? 'active' : ''}>{counterValue}</h1>
             )}

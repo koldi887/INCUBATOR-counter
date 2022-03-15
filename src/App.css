@@ -1,3 +1,92 @@
+.app {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.app__flex {
+    display: flex;
+    justify-content: center;
+}
+
+.app__counter {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    width: 20rem;
+}
+
+.app__counter-box {
+    padding: 1.5rem;
+    gap: 1rem;
+}
+
+.app__settings {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.app__settings-options {
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-border {
+    border: 2px solid var(--primary-color);
+    border-radius: 1rem;
+}
+
+.options-input {
+    text-align: center;
+    padding: 0.2rem;
+    border-radius: 5px;
+    border: 2px solid var(--primary-color);
+    width: 50%;
+}
+
+.options-input:focus {
+    outline: none;
+}
+
+.input-error {
+    background-color: var(--secondary-color);
+    border: 2px solid var(--danger-color);
+
+}
+
+.button {
+    padding: 0.5rem 1rem 0 1rem;
+    background-color: var(--primary-color);
+    color: var(--darkGray-color);
+    border: none;
+    border-radius: 0.5rem;
+    font-size: large;
+    font-weight: bold;
+}
+
+.button:active {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button:disabled {
+    opacity: 0.5;
+}
+
+.text-color {
+    align-self: center;
+    font-size: large;
+    color: var(--primary-color);
+}
+
 .active {
-    color: red;
+    align-self: center;
+    color: var(--danger-color);
 }

@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import Counter from "./components/Counter";
-import CounterSettings from "./components/CounterSettings";
+import {
+    Button,
+    CounterButtons,
+    CounterContainer,
+    CounterScreen,
+    SettingOptions
+} from "./components";
 
 function App() {
     const [ counterSettings, setCounterSettings ] = useState({ minValue: 0, maxValue: 5 })
     const [ counterValue, setCounterValue ] = useState(0)
     const [ error, setError ] = useState({ min: '', max: '' })
     const [ editMode, setEditMode ] = useState(false)
-
 
     const increase = () => {
         setCounterValue(counterValue + 1)
@@ -20,7 +24,9 @@ function App() {
 
     const reset = () => {
         setCounterSettings({ minValue: 0, maxValue: 5 })
+        setError({ min: '', max: '' })
         setCounterValue(0)
+        setEditMode(false)
         localStorage.clear()
     }
 
@@ -44,12 +50,12 @@ function App() {
                 setError({ ...error, min: '' })
             }
         }
+
         if (e.target.name === 'max') {
             setCounterSettings({ ...counterSettings, maxValue: value })
             if (value < 0 || value < counterSettings.minValue) {
                 setError({ ...error, max: err })
             } else {
-                console.log('da')
                 setError({ ...error, max: '' })
             }
         }
@@ -69,27 +75,33 @@ function App() {
     }, [ counterValue ])
 
     return (
-        <div className="App">
-            <Counter
-                counterValue={counterValue}
-                maxValue={counterSettings.maxValue}
-                minValue={counterSettings.minValue}
-                error={error}
-                editMode={editMode}
-                decrease={decrease}
-                increase={increase}
-                reset={reset}
-            />
+        <div className="app">
+            <CounterContainer topChildren={
+                <SettingOptions
+                    settingsValidation={settingsValidation}
+                    counterSettings={counterSettings}
+                    error={error}/>}
+            >
+                <Button title='set' callBack={saveSettings}/>
+            </CounterContainer>
 
-            <CounterSettings
-                counterSettings={counterSettings}
-                saveSettings={saveSettings}
-                settingsValidation={settingsValidation}
-                error={error}
-            />
-
+            <CounterContainer topChildren={
+                <CounterScreen
+                    counterValue={counterValue}
+                    maxValue={counterSettings.maxValue}
+                    error={error}
+                    editMode={editMode}/>}
+            >
+                <CounterButtons
+                    counterSettings={counterSettings}
+                    counterValue={counterValue}
+                    reset={reset}
+                    increase={increase}
+                    decrease={decrease}
+                />
+            </CounterContainer>
         </div>
-    );
+    )
 }
 
 export default App;

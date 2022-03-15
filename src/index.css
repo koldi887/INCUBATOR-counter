@@ -7,11 +7,15 @@
 
 :root {
     --primary-color: #76d9fb;
-    --white-color: #edf2f8;
-    --darkGray-color: #edf2f8;
+    --secondary-color: #ea7c7c;
+    --danger-color: #f80202;
+    --darkGray-color: #2b2c36;
 }
 
 body {
+    display: flex;
+    justify-content: center;
+    padding-top: 10rem;
     background-color: var(--darkGray-color);
 }
 
