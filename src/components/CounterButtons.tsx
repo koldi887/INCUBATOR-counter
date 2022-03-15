@@ -21,21 +21,21 @@ const CounterButtons: React.FC<PropsType> = (
     return (
         <>
             <Button
-                title={'inc'}
+                title='inc'
                 callBack={increase}
                 value={counterSettings.maxValue}
                 counterValue={counterValue}
             />
 
             <Button
-                title={'dec'}
+                title='dec'
                 callBack={decrease}
                 value={counterSettings.minValue}
                 counterValue={counterValue}
             />
 
             <Button
-                title={'reset'}
+                title='reset'
                 callBack={reset}
             />
         </>

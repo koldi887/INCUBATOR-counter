@@ -20,7 +20,7 @@ const OptionInput: React.FC<PropsType> = (
     }) => {
 
     return (
-        <div className={'app__settings-options'}>
+        <div className='app__settings-options'>
             <p className='text-color'>{title}:</p>
             <input
                 name={name}

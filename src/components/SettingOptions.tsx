@@ -24,9 +24,9 @@ const SettingOptions: React.FC<PropsType> = (
         <div className=' app__settings'>
 
             <OptionInput
-                title={'min value'}
-                name={'min'}
-                type={'number'}
+                title='min value'
+                name='min'
+                type='number'
                 classHandler={() => inputClassHandler(error.min)}
                 value={counterSettings.minValue}
                 callback={settingsValidation}
