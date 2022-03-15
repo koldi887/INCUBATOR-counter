@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import {
-    Button,
-    CounterButtons,
-    CounterContainer,
-    CounterScreen,
-    SettingOptions
-} from "./components";
+import { Button, CounterScreen } from "./components";
+import { CounterButtons, CounterContainer, SettingOptions } from "./container";
 
 function App() {
     const [ counterSettings, setCounterSettings ] = useState({ minValue: 0, maxValue: 5 })

@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react';
-import { OptionInput } from "./index";
+import { OptionInput } from "../components";
 
 type PropsType = {
     counterSettings: { minValue: number, maxValue: number };
