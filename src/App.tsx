@@ -14,6 +14,19 @@ function App() {
     const [ error, setError ] = useState({ min: '', max: '' })
     const [ editMode, setEditMode ] = useState(false)
 
+    useEffect(() => {
+        const counter = localStorage.getItem('count')
+        const settings = localStorage.getItem('settings')
+
+        if (counter) setCounterValue(JSON.parse(counter))
+        if (settings) setCounterSettings(JSON.parse(settings))
+    }, [])
+
+
+    useEffect(() => {
+        localStorage.setItem('count', JSON.stringify(counterValue))
+    }, [ counterValue ])
+
     const increase = () => {
         setCounterValue(counterValue + 1)
     }
@@ -60,19 +73,6 @@ function App() {
             }
         }
     }
-
-    useEffect(() => {
-        const counter = localStorage.getItem('count')
-        const settings = localStorage.getItem('settings')
-
-        if (counter) setCounterValue(JSON.parse(counter))
-        if (settings) setCounterSettings(JSON.parse(settings))
-    }, [])
-
-
-    useEffect(() => {
-        localStorage.setItem('count', JSON.stringify(counterValue))
-    }, [ counterValue ])
 
     return (
         <div className="app">
