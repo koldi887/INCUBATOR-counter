@@ -6,11 +6,12 @@ type PropsType = {
     error: { min: string, max: string }
 }
 
-const SettingOptions: React.FC<PropsType> = ({
-                                                 counterSettings,
-                                                 settingsValidation,
-                                                 error
-                                             }) => {
+const SettingOptions: React.FC<PropsType> = (
+    {
+        counterSettings,
+        settingsValidation,
+        error
+    }) => {
 
     const inputClassHandler = (err: string) => {
         if (err) {

@@ -7,12 +7,13 @@ type PropsType = {
     value?: number
 }
 
-const Button: React.FC<PropsType> = ({
-                                         title,
-                                         callBack,
-                                         counterValue,
-                                         value
-                                     }) => {
+const Button: React.FC<PropsType> = (
+    {
+        title,
+        callBack,
+        counterValue,
+        value
+    }) => {
 
     const disableHandle = () => {
         return counterValue === value;

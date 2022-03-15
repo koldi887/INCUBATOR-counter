@@ -9,13 +9,15 @@ type PropsType = {
     reset: () => void
 }
 
-const CounterButtons: React.FC<PropsType> = ({
-                                                 counterValue,
-                                                 counterSettings,
-                                                 increase,
-                                                 decrease,
-                                                 reset
-                                             }) => {
+const CounterButtons: React.FC<PropsType> = (
+    {
+        counterValue,
+        counterSettings,
+        increase,
+        decrease,
+        reset
+    }) => {
+    
     return (
         <>
             <Button

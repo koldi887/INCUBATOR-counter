@@ -8,12 +8,13 @@ type PropsType = {
 
 }
 
-const CounterScreen: React.FC<PropsType> = ({
-                                                counterValue,
-                                                maxValue,
-                                                error,
-                                                editMode
-                                            }) => {
+const CounterScreen: React.FC<PropsType> = (
+    {
+        counterValue,
+        maxValue,
+        error,
+        editMode
+    }) => {
 
     const errors = Object.values(error).filter(val => val).join()
     const screenValue = errors ? <p className='active'>{errors}</p> : editMode
