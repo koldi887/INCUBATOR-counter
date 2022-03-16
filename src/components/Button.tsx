@@ -1,34 +1,22 @@
 import React from 'react';
 
-type PropsType = {
+interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     title: string
-    callBack: () => void
-    counterValue?: number
-    value?: number
 }
 
-const Button: React.FC<PropsType> = (
+const Button: React.FC<IProps> = (
     {
         title,
-        callBack,
-        counterValue,
-        value
+        ...restProps
     }) => {
 
-    const disableHandle = () => {
-        return counterValue === value;
-    }
-
     return (
-        <div>
-            <button
-                className='button'
-                disabled={value || value === 0 ? disableHandle() : false}
-                onClick={callBack}
-            >
-                {title}
-            </button>
-        </div>
+        <button
+            className='button'
+            {...restProps}
+        >
+            {title}
+        </button>
     );
 };
 

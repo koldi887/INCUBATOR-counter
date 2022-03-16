@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
 import { Button, CounterScreen } from "./components";
 import { CounterButtons, CounterContainer, SettingOptions } from "./container";
+
+import './App.css';
 
 function App() {
     const [ counterSettings, setCounterSettings ] = useState({ minValue: 0, maxValue: 5 })
@@ -77,7 +78,7 @@ function App() {
                     counterSettings={counterSettings}
                     error={error}/>}
             >
-                <Button title='set' callBack={saveSettings}/>
+                <Button title='set' onClick={saveSettings}/>
             </CounterContainer>
 
             <CounterContainer topChildren={
@@ -90,6 +91,7 @@ function App() {
                 <CounterButtons
                     counterSettings={counterSettings}
                     counterValue={counterValue}
+                    editMode={editMode}
                     reset={reset}
                     increase={increase}
                     decrease={decrease}

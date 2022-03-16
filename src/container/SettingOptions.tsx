@@ -14,7 +14,7 @@ const SettingOptions: React.FC<PropsType> = (
         error
     }) => {
 
-    const inputClassHandler = (err: string) => {
+    const inputClassHandler = (err: string): string => {
         if (err) {
             return 'input-error options-input'
         } else return 'options-input'
@@ -27,18 +27,18 @@ const SettingOptions: React.FC<PropsType> = (
                 title='min value'
                 name='min'
                 type='number'
-                classHandler={() => inputClassHandler(error.min)}
+                className={inputClassHandler(error.min)}
                 value={counterSettings.minValue}
-                callback={settingsValidation}
+                onChange={settingsValidation}
             />
 
             <OptionInput
                 title='max value'
                 name='max'
                 type='number'
-                classHandler={() => inputClassHandler(error.max)}
+                className={inputClassHandler(error.max)}
                 value={counterSettings.maxValue}
-                callback={settingsValidation}
+                onChange={settingsValidation}
             />
 
         </div>

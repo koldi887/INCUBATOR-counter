@@ -1,34 +1,19 @@
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 
-type PropsType = {
-    title: string,
-    name: string
-    type: string
-    classHandler: () => string
-    value: number
-    callback: (value: ChangeEvent<HTMLInputElement>) => void
+interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
+    title: string
 }
 
-const OptionInput: React.FC<PropsType> = (
+const OptionInput: React.FC<IProps> = (
     {
         title,
-        name,
-        type,
-        classHandler,
-        value,
-        callback
+        ...restProps
     }) => {
 
     return (
         <div className='app__settings-options'>
             <p className='text-color'>{title}:</p>
-            <input
-                name={name}
-                type={type}
-                className={classHandler()}
-                value={value}
-                onChange={callback}
-            />
+            <input {...restProps} />
         </div>
     );
 };
