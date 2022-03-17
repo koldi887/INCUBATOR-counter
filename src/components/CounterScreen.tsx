@@ -5,10 +5,9 @@ type PropsType = {
     maxValue: number,
     error: { min: string, max: string }
     editMode: boolean
-
 }
 
-const CounterScreen: React.FC<PropsType> = (
+export const CounterScreen: React.FC<PropsType> = (
     {
         counterValue,
         maxValue,
@@ -28,5 +27,3 @@ const CounterScreen: React.FC<PropsType> = (
         </div>
     );
 };
-
-export default CounterScreen;

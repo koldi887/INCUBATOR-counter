@@ -4,7 +4,7 @@ type PropsType = {
     topChildren: ReactElement
 }
 
-const CounterContainer: React.FC<PropsType> = ({ topChildren, children }) => {
+export const CounterContainer: React.FC<PropsType> = ({ topChildren, children }) => {
 
     return (
         <div className='app__counter box-border'>
@@ -19,4 +19,3 @@ const CounterContainer: React.FC<PropsType> = ({ topChildren, children }) => {
     );
 };
 
-export default CounterContainer;

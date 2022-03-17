@@ -10,7 +10,7 @@ type PropsType = {
     reset: () => void
 }
 
-const CounterButtons: React.FC<PropsType> = (
+export const CounterButtons: React.FC<PropsType> = (
     {
         counterValue,
         counterSettings,
@@ -49,4 +49,3 @@ const CounterButtons: React.FC<PropsType> = (
     );
 };
 
-export default CounterButtons;

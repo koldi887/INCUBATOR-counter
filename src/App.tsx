@@ -18,7 +18,6 @@ function App() {
         if (settings) setCounterSettings(JSON.parse(settings))
     }, [])
 
-
     useEffect(() => {
         localStorage.setItem('count', JSON.stringify(counterValue))
     }, [ counterValue ])

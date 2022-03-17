@@ -1,3 +1,3 @@
-export { default as CounterButtons } from '../container/CounterButtons'
-export { default as CounterContainer } from '../container/CounterContainer'
-export { default as SettingOptions } from '../container/SettingOptions'
+export { CounterButtons } from '../container/CounterButtons'
+export { CounterContainer } from '../container/CounterContainer'
+export { SettingOptions } from '../container/SettingOptions'

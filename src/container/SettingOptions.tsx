@@ -7,7 +7,7 @@ type PropsType = {
     error: { min: string, max: string }
 }
 
-const SettingOptions: React.FC<PropsType> = (
+export const SettingOptions: React.FC<PropsType> = (
     {
         counterSettings,
         settingsValidation,
@@ -44,5 +44,3 @@ const SettingOptions: React.FC<PropsType> = (
         </div>
     );
 };
-
-export default SettingOptions;
